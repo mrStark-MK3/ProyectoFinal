@@ -2,7 +2,7 @@ package paquete1;
 
 import java.util.ArrayList;
 
-public class Metodos {
+public class MetodosObjects {
     
     // Personajes
     // Personajes predeterminados
@@ -26,7 +26,7 @@ public class Metodos {
         return Personajes;
     }
     // Personajes por desbloquear
-    public Personaje [] PeronajesADesbloquear() {
+    public Personaje [] PersonajesADesbloquear() {
         
         Personaje [] Personajes = new Personaje [7];
         
@@ -40,7 +40,40 @@ public class Metodos {
         
         return Personajes;
     }
-    
+    // Heroes
+    public ArrayList <String> Heroes(){
+        
+        ArrayList <Personaje> arrayAll = Personajes();
+        Personaje [] arrayAll2 = PersonajesADesbloquear();
+        
+        ArrayList <String> heroes = new ArrayList();
+        
+        heroes.add(arrayAll.get(2).getNombre());
+        heroes.add(arrayAll.get(3).getNombre());
+        heroes.add(arrayAll.get(8).getNombre());
+        heroes.add(arrayAll.get(9).getNombre());
+        heroes.add(arrayAll2[2].getNombre());
+        heroes.add(arrayAll2[5].getNombre());
+
+        return heroes;
+    }
+    // Villanos
+    public ArrayList <String> Villanos(){
+        
+        ArrayList <Personaje> arrayAll = Personajes();
+        Personaje [] arrayAll2 = PersonajesADesbloquear();
+        
+        ArrayList <String> villanos = new ArrayList();
+        
+        villanos.add(arrayAll.get(4).getNombre());
+        villanos.add(arrayAll.get(5).getNombre());
+        villanos.add(arrayAll.get(10).getNombre());
+        villanos.add(arrayAll.get(11).getNombre());
+        villanos.add(arrayAll2[0].getNombre());
+        villanos.add(arrayAll2[6].getNombre());
+
+        return villanos;
+    }
     // Copas
     public Copa [] Copas() {
         

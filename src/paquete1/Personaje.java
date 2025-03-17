@@ -1,5 +1,7 @@
 package paquete1;
 
+import java.util.ArrayList;
+
 public class Personaje {
     
     // Atributos
@@ -16,6 +18,42 @@ public class Personaje {
         this.velocidad = velocidad;
         this.peso = peso;
         this.nivel = nivel;
+    }
+    
+    // Funciones
+    public void DefinirStats() {
+        
+        MetodosObjects mdo = new MetodosObjects();
+        
+        ArrayList <String> heroes = mdo.Heroes();
+        ArrayList <String> villanos = mdo.Villanos();
+        
+        if (heroes.contains(nombre)) {
+            if (vehiculo.equalsIgnoreCase("carro")) {
+                velocidad = 5;
+                peso = 5;
+            } else {
+                velocidad = 7;
+                peso = 3;
+            }
+        } else if (villanos.contains(nombre)) {
+            if (vehiculo.equalsIgnoreCase("carro")) {
+                velocidad = 4;
+                peso = 6;
+            } else {
+                velocidad = 6;
+                peso = 4;
+            }
+        } else {
+            if (vehiculo.equalsIgnoreCase("carro")) {
+                velocidad = 6;
+                peso = 4;
+            } else {
+                velocidad = 8;
+                peso = 2;
+            }
+        }
+        
     }
     
     // Getters y Setters

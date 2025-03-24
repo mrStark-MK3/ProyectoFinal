@@ -30,7 +30,7 @@ public class Copa {
     // ToString
     @Override
     public String toString() {
-        return "Copa: " + nombre + " Rank: " + rank + " Nivel: " + nivel;
+        return "Copa: " + nombre + " Rank Actual: " + rank + " Nivel: " + nivel;
     }
     
 }

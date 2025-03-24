@@ -6,10 +6,12 @@ public class Personaje {
     
     // Atributos
     private String nombre;
-    private String vehiculo;
+    private String vehiculo; // Carro o Moto
     private int velocidad;
     private int peso; // Tanto la velocidad como el peso van de 1 a 10. (1 el mas bajo y 10 el mas alto)
-    private int nivel; // Este se modifica de acuerdo el usuario juegue
+    private int nivel; // Este se modifica de acuerdo el usuario jueguepr 
+    private int puntos; // Este imidica la puntos de ganar de cada personaje
+    private Personaje personaje; // Personaje cont los atributos basicos
     
     // Constructor
     public Personaje(String nombre, String vehiculo, int velocidad, int peso, int nivel) {
@@ -18,6 +20,11 @@ public class Personaje {
         this.velocidad = velocidad;
         this.peso = peso;
         this.nivel = nivel;
+    }
+    // Este constructore es el que se utilizara en la simulacion de la carrera
+    public Personaje(Personaje personaje, int puntos) {
+        this.personaje = personaje;
+        this.puntos = puntos;
     }
     
     // Funciones
@@ -33,24 +40,24 @@ public class Personaje {
                 velocidad = 5;
                 peso = 5;
             } else {
-                velocidad = 7;
-                peso = 3;
+                velocidad = 6;
+                peso = 4;
             }
         } else if (villanos.contains(nombre)) {
             if (vehiculo.equalsIgnoreCase("carro")) {
                 velocidad = 4;
                 peso = 6;
             } else {
-                velocidad = 6;
-                peso = 4;
+                velocidad = 5;
+                peso = 5;
             }
         } else {
             if (vehiculo.equalsIgnoreCase("carro")) {
                 velocidad = 6;
                 peso = 4;
             } else {
-                velocidad = 8;
-                peso = 2;
+                velocidad = 7;
+                peso = 3;
             }
         }
         
@@ -95,6 +102,22 @@ public class Personaje {
     
     public void setNivel(int nivel) {
         this.nivel = nivel;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+
+    public Personaje getPersonaje() {
+        return personaje;
+    }
+
+    public void setPersonaje(Personaje personaje) {
+        this.personaje = personaje;
     }
     
     // ToString

@@ -1,6 +1,7 @@
 package paquete1;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MetodosObjects {
     
@@ -89,6 +90,41 @@ public class MetodosObjects {
         copas [7] = (new Copa("Lightning Cup", "", 16));
         
         return copas;
+    }
+    
+    // Probabilidades de ganar
+    public ArrayList ProbabilidadesArray(ArrayList <Personaje> array) {
+        
+        Random rd = new Random();
+        
+        // Arreglo de personajes y su probanilidad de ganar (este es el que se utilizara en la simlacion de la carrera)
+        ArrayList <Personaje> arrayProbs = new ArrayList();
+        // Arreglo de heroes
+        ArrayList <String> heroes = Heroes();
+        // Arreglo de villanos
+        ArrayList <String> villanos = Villanos();
+        // Asignacion de probabilidades de ganar
+        int puntos = 0;
+        for (int i = 0; i < array.size(); i++) {
+            Personaje personaje = array.get(i);
+            if (heroes.contains(personaje.getNombre())) {
+                if (personaje.getVehiculo().equalsIgnoreCase("carro")) {
+                    int R = rd.nextInt(1,21);
+                    if (R >= 1 && R <= 9) {
+                        
+                    }
+                }
+            }
+        }
+        
+        
+        
+        return arrayProbs;
+    }
+    
+    // Ganador
+    public void Ganador(Personaje ganador) {
+        
     }
     
 }

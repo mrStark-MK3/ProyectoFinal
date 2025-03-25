@@ -91,7 +91,27 @@ public class MetodosObjects {
         
         return copas;
     }
-    
+    // Eleccion de vehiculo (CPU)
+    public ArrayList EleccionDeVehiculoCPU(Personaje userPersonaje, ArrayList <Personaje> competidores) {
+        
+        Random rd = new Random();
+        
+        for (int i = 0; i < competidores.size(); i++) {
+            if (!competidores.get(i).equals(userPersonaje)) {
+                int tipoVehiculo = rd.nextInt(0,2);
+                String vehiculo = "";
+                if (tipoVehiculo == 0) {
+                    vehiculo = "carro";
+                } else {
+                    vehiculo = "moto";
+                }
+                competidores.get(i).setVehiculo(vehiculo);
+                competidores.get(i).DefinirStats();
+            }
+        }
+        
+        return competidores;
+    }
     // Probabilidades de ganar
     public ArrayList ProbabilidadesArray(ArrayList <Personaje> array) {
         
@@ -109,12 +129,208 @@ public class MetodosObjects {
             Personaje personaje = array.get(i);
             if (heroes.contains(personaje.getNombre())) {
                 if (personaje.getVehiculo().equalsIgnoreCase("carro")) {
-                    int R = rd.nextInt(1,21);
+                    int R = rd.nextInt(0,21);
                     if (R >= 1 && R <= 9) {
-                        
+                        puntos += 15;
+                    } else {
+                        switch(R) {
+                            case 10:
+                                puntos += 12;
+                                break;
+                            case 11:
+                                puntos += 11;
+                                break;
+                            case 12:
+                                puntos += 8;
+                                break;
+                            case 13:
+                                puntos += 7;
+                                break;
+                            case 14:
+                                puntos += 6;
+                                break;
+                            case 15:
+                                puntos += 5;
+                                break;
+                            case 16:
+                                puntos += 4;
+                                break;
+                            case 17:
+                                puntos += 3;
+                                break;
+                            case 18:
+                                puntos += 2;
+                            case 19:
+                                puntos += 1;
+                        }
+                    }
+                } else if (personaje.getVehiculo().equalsIgnoreCase("moto")) {
+                    int R = rd.nextInt(0,21);
+                    if (R >= 1 && R <= 12) {
+                        puntos += 15;
+                    } else {
+                        switch (R) {
+                            case 13:
+                                puntos += 7;
+                                break;
+                            case 14:
+                                puntos += 6;
+                                break;
+                            case 15:
+                                puntos += 5;
+                                break;
+                            case 16:
+                                puntos += 4;
+                                break;
+                            case 17:
+                                puntos += 3;
+                                break;
+                            case 18:
+                                puntos += 2;
+                                break;
+                            case 19:
+                                puntos += 1;
+                                break;
+                        }
+                    }
+                }
+            } else if (villanos.contains(personaje.getNombre())) {
+                if (personaje.getVehiculo().equalsIgnoreCase("carro")) {
+                    int R = rd.nextInt(0,21);
+                    if (R >= 1 && R <= 8) {
+                        puntos += 15;
+                    } else {
+                        switch(R) {
+                            case 9:
+                                puntos += 12;
+                                break;
+                            case 10:
+                                puntos += 11;
+                                break;
+                            case 11:
+                                puntos += 8;
+                                break;
+                            case 12:
+                                puntos += 7;
+                                break;
+                            case 13:
+                                puntos += 6;
+                                break;
+                            case 14:
+                                puntos += 5;
+                                break;
+                            case 15:
+                                puntos += 4;
+                                break;
+                            case 16:
+                                puntos += 3;
+                                break;
+                            case 17:
+                                puntos += 2;
+                                break;
+                            case 18:
+                                puntos += 1;
+                        }
+                    }
+                } else if (personaje.getVehiculo().equalsIgnoreCase("moto")) {
+                    int R = rd.nextInt(0,21);
+                    if (R >= 1 && R <= 13) {
+                        puntos += 15;
+                    } else {
+                        switch (R) {
+                            case 14:
+                                puntos += 7;
+                                break;
+                            case 15:
+                                puntos += 6;
+                                break;
+                            case 16:
+                                puntos += 5;
+                                break;
+                            case 17:
+                                puntos += 4;
+                                break;
+                            case 18:
+                                puntos += 3;
+                                break;
+                            case 19:
+                                puntos += 2;
+                                break;
+                            case 20:
+                                puntos += 1;
+                                break;
+                        }
+                    }
+                }
+            } else {
+                if (personaje.getVehiculo().equalsIgnoreCase("carro")) {
+                    int R = rd.nextInt(0,21);
+                    if (R >= 1 && R <= 7) {
+                        puntos += 15;
+                    } else {
+                        switch(R) {
+                            case 8:
+                                puntos += 12;
+                                break;
+                            case 9:
+                                puntos += 11;
+                                break;
+                            case 10:
+                                puntos += 10;
+                                break;
+                            case 11:
+                                puntos += 7;
+                                break;
+                            case 12:
+                                puntos += 6;
+                                break;
+                            case 13:
+                                puntos += 5;
+                                break;
+                            case 14:
+                                puntos += 4;
+                                break;
+                            case 15:
+                                puntos += 3;
+                                break;
+                            case 16:
+                                puntos += 2;
+                                break;
+                            case 17:
+                                puntos += 1;
+                                break;
+                        }
+                    }
+                } else if (personaje.getVehiculo().equalsIgnoreCase("moto")) {
+                    int R = rd.nextInt(0,21);
+                    if (R >= 1 && R <= 14) {
+                        puntos += 15;
+                    } else {
+                        switch (R) {
+                            case 15:
+                                puntos += 7;
+                                break;
+                            case 16:
+                                puntos += 6;
+                                break;
+                            case 17:
+                                puntos += 5;
+                                break;
+                            case 18:
+                                puntos += 4;
+                                break;
+                            case 19:
+                                puntos += 3;
+                                break;
+                            case 20:
+                                puntos += 2;
+                                break;
+                        }
                     }
                 }
             }
+            
+            arrayProbs.add(new Personaje(personaje, puntos));
         }
         
         

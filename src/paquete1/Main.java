@@ -8,6 +8,14 @@ import javax.swing.JOptionPane;
 
 public class Main {
 
+    public static void PrintObjectComplete(ArrayList <Personaje> personajes) {
+        for (int i = 0; i < personajes.size(); i++) {
+            System.out.println("--------------------");
+            System.out.println(personajes.get(i).toString());
+            System.out.println("--------------------");
+        }
+    }
+    
     public static void main(String[] args) {
         
         Scanner input = new Scanner(System.in);
@@ -21,7 +29,7 @@ public class Main {
         // Arreglo de copas
         Copa copas [] = mdo.Copas();
         // Arreglos de probabilidades de ganar de cada personaje
-        ArrayList <Personaje> arrayProbalities = new ArrayList();
+
         
         // Icono de menu Principal
         ImageIcon icon = new ImageIcon("mario.jpg");
@@ -47,10 +55,15 @@ public class Main {
                     } else {
                         // Elegir competidores aleatorios
                         ArrayList <Personaje> competidores = mdm.Competidores(personajes, userPlayer);
-                        Ventanas v1 = new Ventanas(competidores, personajes);
+                        competidores = mdo.EleccionDeVehiculoCPU(userPlayer, competidores);
+                        Ventanas v2 = new Ventanas(competidores, personajes);
                         int opRun = JOptionPane.showConfirmDialog(null, "A Correr?");
                         if (opRun == 0) {
-                            v1.setVisible(false);
+                            PrintObjectComplete(competidores);
+                            v2.dispose(); // Cierra la ventana
+                            // Resultados
+                            ArrayList <Personaje> results = mdo.ProbabilidadesArray(competidores);
+                            
                         } else {
                             break;
                         }

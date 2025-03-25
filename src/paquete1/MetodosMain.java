@@ -33,6 +33,7 @@ public class MetodosMain {
         String lista = PrintPlayers(personajes); // Lista de personajes
         int resp, nPersonaje;
         do {
+
             nPersonaje = Integer.parseInt(JOptionPane.showInputDialog("Elije a un personaje\n" + lista + "\nIngresa el numero del personaje que quieres")) -1; // Eleccion del personaje del usuario
             while (nPersonaje >= personajes.size() || nPersonaje < 0) { // Validar la posicion ingresada del usuario
                 JOptionPane.showMessageDialog(null, "El personaje " + (nPersonaje+1) + " no existe\nIntenta de nuevo");
@@ -40,8 +41,7 @@ public class MetodosMain {
             }    
             resp = JOptionPane.showConfirmDialog(null, "Seguro de elegir a " + personajes.get(nPersonaje).getNombre() + "?");
         } while (resp == 1 || resp == 2 || resp == -1);
-        
-        
+
         
         return nPersonaje;
     }

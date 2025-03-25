@@ -11,7 +11,6 @@ public class Personaje {
     private int peso; // Tanto la velocidad como el peso van de 1 a 10. (1 el mas bajo y 10 el mas alto)
     private int nivel; // Este se modifica de acuerdo el usuario jueguepr 
     private int puntos; // Este imidica la puntos de ganar de cada personaje
-    private Personaje personaje; // Personaje cont los atributos basicos
     
     // Constructor
     public Personaje(String nombre, String vehiculo, int velocidad, int peso, int nivel) {
@@ -20,11 +19,6 @@ public class Personaje {
         this.velocidad = velocidad;
         this.peso = peso;
         this.nivel = nivel;
-    }
-    // Este constructore es el que se utilizara en la simulacion de la carrera
-    public Personaje(Personaje personaje, int puntos) {
-        this.personaje = personaje;
-        this.puntos = puntos;
     }
     
     // Funciones
@@ -112,14 +106,6 @@ public class Personaje {
         this.puntos = puntos;
     }
 
-    public Personaje getPersonaje() {
-        return personaje;
-    }
-
-    public void setPersonaje(Personaje personaje) {
-        this.personaje = personaje;
-    }
-    
     // ToString
     @Override
     public String toString() {

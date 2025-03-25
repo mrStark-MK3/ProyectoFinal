@@ -73,7 +73,7 @@ public class Ventanas extends JFrame{
         this.setTitle("COMPETIDORES");
         this.setSize(500, 500); // Establecer tamanio de la ventana
         this.setLocationRelativeTo(null); // Establecer ventana en el centro
-        this.setLayout(new GridLayout(0,2)); // Establece un salto de linea | 0 significa filas y 1 columnas
+        this.setLayout(new GridLayout(0,2)); // Establece un salto de linea | 0 significa filas y 2 columnas
 
         // Etiquetas | Mostrar competidores en formato: N. nombre [imagen]
         String [] nombres = Nombres();
@@ -81,13 +81,44 @@ public class Ventanas extends JFrame{
         int i = 0;
         for (int c = 0; c < personajes.size(); c++) {
             if (competidores.contains(personajes.get(c))) {
-                JLabel label = null;
+                JLabel label;
                 ImageIcon icon = new ImageIcon(iconos[c]);
                 label = new JLabel((i+1) + ". " + nombres[c], icon, JLabel.LEFT);
-                i ++;
+                i++;
                 this.add(label);
             }
         }
+        
+        this.setVisible(true); // Mostrar ventana en la ejecucion
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE); // Cerrar ejecucion al cerrar la ventana
+    }
+    
+    public Ventanas(ArrayList <Personaje> resultados) {
+        
+        this.setTitle("RESULTADOS");
+        this.setSize(500, 500); // Establecer tamanio de la ventana
+        this.setLocationRelativeTo(null); // Establecer ventana en el centro
+        this.setLayout(new GridLayout(0,2)); // Establece un salto de linea | 0 significa filas y 2 columnas
+        
+        String [] nombres = Nombres();
+        String [] iconos = Iconos();
+        
+        for (int i = 0; i < resultados.size(); i++) {
+            // Buscar icono del personaje correspondiente
+            int nPersonaje = 0;
+            for (int j = 0; j < nombres.length; j++) {
+                if (nombres[j].equals(resultados.get(i).getNombre())) {
+                    nPersonaje = j;
+                    break;
+                }
+            }
+            
+            JLabel label;
+            ImageIcon icon = new ImageIcon(iconos[nPersonaje]);
+            label = new JLabel((i+1) + ". " + nombres[nPersonaje] + " | " + resultados.get(i).getPuntos() + "pts.", icon, JLabel.LEFT);
+            this.add(label);
+        }
+        
         
         this.setVisible(true); // Mostrar ventana en la ejecucion
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); // Cerrar ejecucion al cerrar la ventana

@@ -63,7 +63,9 @@ public class Main {
                             v2.dispose(); // Cierra la ventana
                             // Resultados
                             ArrayList <Personaje> results = mdo.ProbabilidadesArray(competidores);
-                            
+                            for (int i = 0; i < results.size(); i++) {
+                                System.out.println((i+1) + ". " + results.get(i).getNombre() + " | " + results.get(i).getPuntos() + "pts.");
+                            }
                         } else {
                             break;
                         }
